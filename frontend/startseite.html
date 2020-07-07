@@ -1,0 +1,40 @@
+<html>
+	<title>sendover</title>
+    <head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="./css/startseite/startseite.css">
+		<link rel="stylesheet" href="./css/suchseite/navbar.css">
+		<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+		<link rel="icon" href="pics/icon.png">
+
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="Startseite.html">
+                <img id="logo" src="../pics/logo.png" height="40" width="175">
+            </a>
+        </div>
+		<div>
+			<img id="backgroundpicture"></img>
+			<div id="outPopUp" >
+				<p>Lieferung im ganzen <br>Zollernalb-Kreis in unter 30min!</p>			
+				<button id="weiter" type="button" onclick="location.href='./suchseite.html'">Jetzt Bestellen!</button>
+			</div>
+			
+			<div id="outPopUp2">
+				<button  class="roundbutton " disabled type="button" ">1</button>
+				<p>Lieblingsessen auswählen</p>
+			</div>
+			
+			<div id="outPopUp3">
+				<button  class="roundbutton "  disabled type="button" ">2</button>
+				<p>Bezahlen</p>
+			</div>
+			<div id="outPopUp4">
+				<button  class="roundbutton " disabled type="button" ">3</button>
+				<p>Genießen!</p>
+			</div>
+		<script src="js/startseite/getRandomPicture.js"></script>
+    </body>
+</html>

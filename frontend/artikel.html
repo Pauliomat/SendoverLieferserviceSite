@@ -1,0 +1,92 @@
+<html>
+    <title>sendover - Artikel hinzufügen</title>
+<head>
+    <link rel="stylesheet" href="../css/suchseite/navbar.css">
+    <link rel="stylesheet" href="../css/formular/artikel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+    <link rel="icon" href="pics/icon.png">
+</head>
+<body>
+    <div class="navbar">
+        <a href="Startseite.html">
+            <img id="logo" src="../pics/logo.png" height="40" width="175">
+        </a>
+    </div>
+
+    <header>
+        <h1>Neuen Artikel hinzufügen</h1>
+    </header>
+
+    <div class="tabelleWrapper">
+        <form>
+            <table class="tabelle">
+                <tr>
+                    <td>
+                        <fieldset class="FeldA">
+                            <legend class="legend">Bezeichnung*</legend>
+                            <input id="bezeichnung" class="inputA" type="text">
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset class="FeldA">
+                            <legend class="legend">Preis*</legend>
+                            <input id="price" class="inputA" type="number" step="0.01" min="0">
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset class="FeldA">
+                            <legend class="legend">Herkunft*</legend>
+                            <input id="origin" class="inputA" type="text">
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset class="FeldB">
+                            <legend class="legend">Gang*</legend>
+                            <select id="course" style="width: 100%;">
+                                <option value="beilage">Beilage</option>
+                                <option value="getraenke">Getränke</option>
+                                <option value="vorspeise">Vorspeise</option>
+                                <option value="hauptgang">Hauptgang</option>
+                                <option value="desert">Desert</option>
+                            </select>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <fieldset class="FeldA">
+                            <legend id="description" class="legend">Beschreibung*</legend>
+                            <textarea id="description_ta" style="width: 100%;text-align: left;" class="inputA" cols="2" rows="5"></textarea>
+                        </fieldset>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input id="vegetarian" type="checkbox"></input>
+                                    <label for="vegetarian">Vegetarisch</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="vegan" type="checkbox"></input>
+                                    <label for="vegan">Vegan</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <input type='file' id="image"/>
+                    </td>
+                </tr>
+        
+            </table>
+            <div class="add">
+                <input type="button" value="Artikel hinzufügen"id="add" onclick=addArtikel()></button>
+            </div>
+        </form>
+    </div>
+</body>
+    <script src="js/artikel/artikel.js"></script>
+</html>

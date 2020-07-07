@@ -1,0 +1,97 @@
+
+  html {
+      font-family: Poppins;
+  }
+
+  body {
+    margin: 0;
+  }
+  
+  #logo {
+    padding:0px 150px;
+  }
+
+  .warenkorbtabelle {
+    margin: 10px auto;
+    width: 38em;
+  }
+
+
+  tbody {	
+    border: 3px solid red;
+    -webkit-box-shadow: 3px 7px 8px 3px rgba(0,0,0,0.23);
+    -moz-box-shadow: 3px 7px 8px 3px rgba(0,0,0,0.23);
+    box-shadow: 3px 7px 8px 3px rgba(0,0,0,0.23);
+    max-height: 100px;
+    overflow-y: scroll;
+}
+  tr:nth-child(2n) {
+    background-color: rgb(240, 240, 240);
+  }
+
+  td,th {
+    font-size: 23px;
+    padding: 5px 10px;
+
+  }
+
+  th {
+      font-family: Lobster;
+  }
+
+  
+  .delete {
+      border: none;
+      color: red;
+      background: none;
+      cursor: pointer;
+      
+  }
+  .pricemod {
+    border: none;
+    width: auto;
+    margin-left: 30px;
+  }
+
+  .pricemod:nth-child(2n) {
+    background-color: rgb(240, 240, 240);
+  }
+
+  .price {
+    float: right;
+  }
+  
+  .roundbutton{
+      border-radius: 50%;
+      width: 75px ;
+    font-size: 50px;
+    border: 2px solid white;
+  }
+
+  #gesamtprice {
+      float: right;
+      font-weight: bold;
+      border-bottom: 1px double grey;
+      font-size: 30px;
+  }
+
+  #einkaufen {
+      width: 230px;
+      font-size: 20px;
+      font-family: Poppins;
+      background-color: #00affe;
+      border-radius: 20px;
+      color: white;
+  }
+
+  #weiter {
+    width: 30em;
+    height: 50px;
+    font-size: 20px;
+    font-family: Poppins;
+    background-color: #00affe;
+    border-radius: 20px;
+    color: white;
+    margin: 0 auto;
+  }
+  

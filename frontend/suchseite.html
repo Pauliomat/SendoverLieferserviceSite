@@ -1,0 +1,126 @@
+<html>
+<title>sendover - Suchseite</title>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/suchseite/navbar.css">
+    <link rel="stylesheet" href="./css/suchseite/navside.css">
+    <link rel="stylesheet" href="./css/suchseite/searchbar.css">
+    <link rel="stylesheet" href="./css/suchseite/sortierbar.css">
+    <link rel="stylesheet" href="./css/suchseite/searchcontent.css">
+    <link rel="stylesheet" href="./css/suchseite/animation.css">
+    <link rel="icon" href="pics/icon.png">
+</head>
+
+<body id="b">
+    <!-- Navbar-->
+    <div class="navbar" id="navbar">
+        <a href="startseite.html">
+            <img id="logo" src="./pics/logo.png" height="40" width="175">
+        </a>
+        <a href="warenkorb.html">
+            <img id="warenkorb" src="./pics/warenkorb.png" height="60" width="60">
+            <div class="warenkorb_text">
+                <p id="warenkorb_anzahl">0 Elemente</p>
+                <p id="warenkorb_preis">0,00€</p>
+            </div>
+        </a>
+    </div>
+    <!-- Searchbar-->
+    <div>
+        <input type="text" id="searchbar" placeholder="Nach einem Gericht suchen..." onkeyup="fetchData()">
+    </div>
+    <!-- Sortbar-->
+    <div class="sortbar">
+        <button class="sortbutton" onclick="fetchData()">Sortieren nach günstigste</button>
+        <div class="dropdown">
+            <button class="sortierauswahlbutton" onclick=setSortMode(1)>günstigste</button>
+            <button class="sortierauswahlbutton" onclick=setSortMode(2)>teuerste</button>
+        </div>
+    </div>
+    <!-- Sidebar-->
+    <div class="navside">
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="beilage">
+            <label class="labelside" for="beilage">Beilage</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="getraenke">
+            <label class="labelside" for="getraenke">Getränke</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="vorspeise">
+            <label class="labelside" for="vorspeise">Vorspeise</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="hauptgang">
+            <label class="labelside" for="hauptgang">Hauptgang</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="desert">
+            <label class="labelside" for="desert">Desert</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="vegetarisch">
+            <label class="labelside" for="vegetarisch">Vegetarisch</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="vegan">
+            <label class="labelside" for="vegan">Vegan</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="it">
+            <label class="labelside" for="it">Italienisch</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="tu">
+            <label class="labelside" for="tu">Türkisch</label><br>
+        </div>
+
+        <div class="side_item">
+            <input class="checkboxside" type="checkbox" id="de">
+            <label class="labelside" for="de">Deutsch</label><br>
+        </div>
+
+        <div class="side_item">
+            <form id="von">
+                <label for="von_preis" id="von_label">Von: €</label>
+                <input type="number" id="von_preis" value="0" step="1" min="0" onkeyup=fetchData()
+                    onchange=fetchData()><br>
+
+                <label for="bis_preis" id="bis_label">Bis : € </label>
+                <input type="number" id="bis_preis" value="100" step="1" min="0" onkeyup=fetchData()
+                    onchange=fetchData()>
+            </form>
+        </div>
+    </div>
+
+    <!--Anzahl treffer div-->
+    <div id="result_div"></div>
+
+    <!-- Search content div-->
+    <div class="searchcontent" id="searchcontentID"></div>
+
+</body>
+<!-- SCRIPTS ---------------------------------------------------------------------------------------------------------->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>-->
+<script src="js/suchseite/einstellungenAuswerten.js"></script>
+<script src="js/suchseite/setSortMode.js"></script>
+<script src="js/suchseite/printData.js"></script>
+<script src="js/suchseite/getCookie.js"></script>
+<script src="js/suchseite/updateWarenkorb.js"></script>
+<script src="js/suchseite/warenkorbNotification.js"></script>
+<script src="js/suchseite/jquery.js"></script>
+<script src="js/suchseite/showLoadingAnimation.js"></script>
+
+</html>
