@@ -98,21 +98,39 @@ getData = async function (params) {
 
 setWarenkorb =  function (req) {
     var operation = Object.keys(req.query)[0];
+    switch(operation){
+    case "update":
+        updateMenge(req);    
+        break;
+    case "delete":
+        deleteFromWarenkorb(req);
+        break;
+    case "change":
+        changeFromWarenkorb(req);
+        break;
+    default:
+        setData(req);
+    }
+    /*
     if(operation == "update") {
+		console.log("setWarenkorbupdate");
         updateMenge(req);
     } else {
         setData(req);
     }
     if(operation == "delete"){
+		console.log("setWarenkorbdelete");
         deleteFromWarenkorb(req);
     }else {
         setData(req);
     }
     if(operation == "change"){
+		console.log("setWarenkorbchange");
         changeFromWarenkorb(req);
     }else {
         setData(req);
     }
+    */
     
 };
 

@@ -1,0 +1,99 @@
+Starten der servers(backend):
+
+	server kann gestartet werden über powershell so:
+	wichtig! 	cd .\backend\
+	nodemon .\app.js
+		falls Fehler : File C:\Users\NAME\AppData\Roaming\npm\nodemon.ps1 cannot be loaded. The file
+								C:\Users\NAME\AppData\Roaming\npm\nodemon.ps1 is not digitally signed.
+		einfach Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+		und dann y für yes
+		um dies für diese Powershell temporär zu disablen
+
+	läuft dann bis strg+c auf port 3000
+	also im browser 127.0.0.1:3000
+	man kommt direkt auf die startseite
+
+
+	disclaimer:
+	alles wird derzeit mit einem fest eingecodeten user gemacht,
+	anstatt user beim cookie zu diverenzieren gib unsere cookie funktion immer "afn214214jajwkrhnwir123" als cookie aus.
+	(siehe frontend/js/suchseite/getCookie.js)
+	nichts hält einen aber ab mit anderen user zu arbeiten, die DB hält das voll aus und kann auch differenzieren
+	nur irgentwann wird die db datei halt immer größer
+		
+	ps.: 
+	bei vielen funktionen kann man über die developer konsole noch "consol.log()"s sehen welche einem etwas kriptisch helfen um zu verstehen was die frontend sended an die backend.
+	hier zumbeispiel auf der suchseite wenn man döner suchen will:
+		einstellungenAuswerten.js:68 gang=beilage&gang=vorspeise&gang=hauptgang&gang=desert&min=0&max=100&text=&sort=ASC
+		einstellungenAuswerten.js:68 gang=beilage&gang=vorspeise&gang=hauptgang&gang=desert&min=0&max=100&text=d&sort=ASC
+		einstellungenAuswerten.js:68 gang=beilage&gang=vorspeise&gang=hauptgang&gang=desert&min=0&max=100&text=dö&sort=ASC
+		einstellungenAuswerten.js:68 gang=beilage&gang=vorspeise&gang=hauptgang&gang=desert&min=0&max=100&text=dön&sort=ASC
+		einstellungenAuswerten.js:68 gang=beilage&gang=vorspeise&gang=hauptgang&gang=desert&min=0&max=100&text=döne&sort=ASC
+		einstellungenAuswerten.js:68 gang=beilage&gang=vorspeise&gang=hauptgang&gang=desert&min=0&max=100&text=döner&sort=ASC
+																												^
+																												|
+	
+Dynamisiert wurden: 
+	
+	auf der Startseite, nach laden der seite kriegt man ein random gericht bild
+
+		frontend: startseite.html läd getRandomPicture.js welches einen get befehl ans backend sended
+		backend: /backend/app.js verarbeited den get befehl und sended mittels gallery.js getPicture() ein Bild zurück welches asyncron zum hintergrundbild gemacht wird.
+	
+	
+	auf der Warenkorb seite(warenkorb anklicken)
+		
+		das verändern der Menge
+			frontend: nach dem updaten der menge(rausklicken aus der menge, auf ein pfeil oder enter) wird ein post befehl ans backend geschickt
+			backend: /backend/app.js verarbeited den post befehl zu setwarenkorb() in /backend/warenkorb.js und unterscheide da ob gelöscht, geupdated oder hinzugefügt wird und geht dann in changeFromWarenkorb() rein und updated den eintrag mit der menge
+			frontend: nun nur noch den gesamtpreis neu abgefragen
+		
+		das löschen von Items
+			frontend: nach dem klicken eines loeschbuttons wird ein post befehl ans backend geschickt
+			backend: /backend/app.js verarbeited den post befehl zu setwarenkorb() in /backend/warenkorb.js und unterscheide da ob gelöscht, geupdated oder hinzugefügt wird und geht dann in deleteFromWarenkorb() rein und loesch den eintrag
+			frontend: daraufhin wird die table row geloescht und der gesamtpreis neu abgefragt.
+		
+		die erstellung eines tables(html) der den daten in der warenkorb table(db) gleicht
+			frontend: nachdem laden der seite hollen wir und mit showwarenkorb() aus show/backend/warenkorb.js über einen get befehl ans backend den db-table warenkorb des user
+			backend: /backend/app.js verarbeited den get befehl und sended mittels /backend/warenkorb.js, getwarenkorb() und getItemsForWarenkorbSite() den inhalt vom db-table warenkorb des users zurück
+			frontend: erstellt mit den items from warenkorb einen html-table um alles darzustellen inclusive loeschbuttons und mengenregeler mit verlinkten funktionen fürs loeschen und verändern von mengen und gerichten
+		
+		die anzeige des Gesamtpreis des Warenkorbs
+			frontend: jedes mal wenn eine menge geupdated wird oder ein gericht gelöscht wird schicken wir über calcSumwarenkorb() von show/backend/warenkorb.js ein get befehl ans backend gesended
+			backend: /backend/app.js verarbeited den get befehl und sended mittels /backend/warenkorb.js, getwarenkorb() und getItemsForWarenkorbSite() den inhalt vom db-table warenkorb des users zurück
+			frontend: calcSumwarenkorb() summier menge und preise zusammen und gibt es über innertext veränderung aus
+
+		das checken ob der warenkorb leer ist und somit nicht weiter zu lieferinformation darf
+			frontend: beim reinkommen in die warenkorbseite und bei loeschen eines gerichtes wird über checkIfWarenkorbLeer() von show/backend/warenkorb.js ein get befehl ans backend gesended
+			backend: /backend/app.js verarbeited den get befehl und sended mittels /backend/warenkorb.js, getwarenkorb() und getItemsForWarenkorbSite() den inhalt vom db-table warenkorb des users zurück
+			frontend: falls checkIfWarenkorbLeer() sieht das keine Gerichte vorhanden sind im warenkorb wird der "weiter zur lieferinformation" button geloescht
+	
+	
+	auf der Suchseite,
+
+		das suchen von gerichten
+			frontend: jedes mal wenn was in der suchbox verändert wird, wird mittels einstellungenAuswerten() die parameter für den get befehl von fetchData() verändert.
+			backend: /backend/app.js getBDdata() verarbeited den get befehl und sended mittels /backend/gerichte.js getQuery() die gesuchte auswahl der gerichte zurück
+			frontend: printData() aus /frontend/js/suchseite/printData.js zeigt dann die gesuchten Gerichte an
+		
+		das filtern gesuchter gerichte nach typen(vegitarisch,...)
+			frontend: jedes mal wenn eine filterung wie ne checkbox oder preisspanne verändert wird, wird mittels einstellungenAuswerten() die parameter für den get befehl von fetchData() verändert.
+			backend: /backend/app.js getBDdata() verarbeited den get befehl und sended mittels /backend/gerichte.js getQuery() die gefilterte auswahl der gerichte zurück
+			frontend: printData() aus /frontend/js/suchseite/printData.js zeigt dann die gefilterten Gerichte an
+			
+		das sortieren gesuchter gerichte nach preis
+			frontend: jedes mal wenn sortierung geändert wird und wenn get befehle ans backend gesendet wird mit fetchData() wird der parameter ACD oder DEC als sort parameter der Query mitgesended.
+			backend: /backend/app.js getBDdata() verarbeited den get befehl und sended mittels /backend/gerichte.js getQuery() die sortierten auswahl der gerichte zurück
+			frontend: printData() aus /frontend/js/suchseite/printData.js zeigt dann die sortierten Gerichte an
+		
+		das einfügen von gerichten in den Warenkorb
+			frontend: nach dem button click event wird ein post befehl ans backend geschickt
+			backend: /backend/app.js verarbeited den post befehl zu setwarenkorb() in /backend/warenkorb.js und unterscheide da ob gelöscht, geupdated oder hinzugefügt wird und geht dann in changeFromWarenkorb() rein und updated/ inserted das gericht in den warenkorb des users
+			frontend: updateWarenkorb() summiert menge und preis neu auf und warenkorbNotification() zeigt dies ähnlich nochmals an wenn ein gericht geadded wurde
+				
+		
+		die anzeige des Gesamtpreis des Warenkorbs und Menge
+			frontend: nach jedem einfügen eines gerichtes in dem warenkorb(button click event) und beim reinkommen in die seite(/js/suchseite/jquery.js) wird ein get befehl ans beckend geschickt
+			backend:  /backend/app.js verarbeited den get befehl und sended mittels /backend/warenkorb.js, getwarenkorb() und getItemsForWarenkorbSite() den inhalt vom db-table warenkorb des users zurück
+			frontend: /js/suchseite/update/backend/warenkorb.js updateWarenkorb() summiert mengen und preise auf und zeigt diese an, warenkorbNotification() zeigt dies ähnlich nochmals an wenn ein gericht geadded wurde
+		

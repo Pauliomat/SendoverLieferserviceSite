@@ -3,6 +3,7 @@ function clearTable() {
     doc.innerText = "";
 }
 
+
 function pictureToBase64(pic) {
     var binary = '';
     var bytes = new Uint8Array(pic);
@@ -124,7 +125,8 @@ function printData(data) {
             console.log(parameter);
             var sendQuery = "/warenkorb?"+parameter;
             fetch(sendQuery, {method:"POST"});
-            updateWarenkorb(cookie)
+            updateWarenkorb(cookie);
+            updateWarenkorb(cookie); //asych code is blöd und irgenwo fehlt bei der funktion warscheinlich ein await oder so also einfach das ganze 2mal fix nen kleinen bug
             warenkorbNotification(id);
         });
 

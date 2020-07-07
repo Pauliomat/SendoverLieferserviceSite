@@ -34,6 +34,9 @@ async function calcSumwarenkorb() {
    var response = await fetch(ergebnis,{method:"GET"});
    var data = await response.json();
    data= JSON.parse(data);
+   console.log("aaa");
+   console.log(data);
+   console.log("aaa");
     var sum =0.00;
     var length = Object.keys(data).length;
     for(i=0;i<length ;i++){

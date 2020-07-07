@@ -68,3 +68,4 @@ function einstellungenAuswerten(){
     console.log(parameterString);
     return parameterString;
 }
+module.exports = einstellungenAuswerten;

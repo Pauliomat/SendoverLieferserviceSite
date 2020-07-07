@@ -1,21 +1,25 @@
 {
-    "name": "minimalexpress",
-    "version": "0.0.0",
-    "private": true,
+    "name": "jets_testing",
+    "version": "1.0.0",
+    "description": "",
+    "main": "/backend/app.js",
     "scripts": {
-        "start": "nodemon app.js"
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "GN",
+    "license": "ISC",
+    "devDependencies": {
+        "axios": "^0.19.2",
+        "jest": "^26.0.1",
+        "puppeteer": "^4.0.1"
     },
     "dependencies": {
-        "cookie-parser": "~1.4.4",
-        "debug": "~2.6.9",
-        "ejs": "^3.1.2",
-        "express": "~4.16.1",
-        "fs": "0.0.1-security",
-        "http-errors": "~1.6.3",
-        "jade": "~1.11.0",
-        "mongoose": "^5.9.13",
-        "morgan": "1.9.1",
-        "nodemon": "^2.0.4",
+        "all": "0.0.0",
+        "cookie-parser": "^1.4.5",
+        "ejs": "^3.1.3",
+        "express": "^4.17.1",
+        "morgan": "^1.10.0",
         "sqlite3": "^4.2.0"
     }
 }
