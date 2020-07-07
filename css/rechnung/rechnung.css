@@ -1,0 +1,98 @@
+html {
+    font-family: Poppins;
+}
+body {
+    margin: 0;
+}
+header
+{
+    margin: 0 auto;
+    padding: 50px;
+    color: #00affe;
+    width: 500px;
+}
+#lieferinfos {
+    font-weight: bold;
+    font-size: 35px;
+    margin: 0 auto;
+    width: 60%;
+}
+
+
+.info {
+    padding-left: 60px;
+}
+
+.Daten
+{
+    margin: 0 auto;
+    font-size: 25px;
+    width: 60%;
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+div h2
+{
+    padding-bottom: 20px;
+    font-size: 25pt;
+}
+
+.rechnung 
+{
+    margin: 0 auto;
+    border-width: thin;
+    text-align: left;
+    font-size: 18pt;
+    width: 60%;
+}
+
+.header {
+    font-size: 26px;
+    text-align: center;
+}
+
+.bezeichnung, .menge, .preis ,.gesamt 
+{
+    border-bottom: solid;
+    border-bottom-color: rgb(119,119,119);
+    border-width: 1px;
+    height: 50px;
+    font-size: 15pt;
+    text-align: center;
+}
+
+
+
+.bezeichnung
+{
+    width: 500px;
+}
+
+.menge
+{
+    width: 250px;
+}
+
+.preis
+{
+    width: 250px;
+}
+
+.gesamt
+{
+    width: 250px;
+}
+
+.noborder
+{
+    border-style: none;
+    border-bottom: none;
+}
+
+.endpreis {
+    border-bottom: 4px double black;
+    height: 50px;
+    font-size: 17pt;
+    text-align: center;
+}

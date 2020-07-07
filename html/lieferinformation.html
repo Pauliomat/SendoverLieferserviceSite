@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/suchseite/navbar.css">
+    <link rel="stylesheet" href="../css/lieferinformationen/lieferinformationen.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="Startseite.html">
+            <img id="logo" src="../pics/logo.png" height="40" width="175">
+        </a>
+    </div>
+
+    <header>
+        <h1>Ihre Lieferinformationen</h1>
+    </header>
+
+    <div class="tabelleWrapper">
+
+        <table class="tabelle">
+            <tr>
+                <td>
+                    <fieldset id="FeldA">
+                        <legend class="legend">Vorname*</legend>
+                        <input id="inputA" type="text">
+                    </fieldset>
+                </td>
+                <td colspan="2">
+                    <fieldset id="FeldA">
+                        <legend class="legend">Nachname*</legend>
+                        <input id="inputA" type="text">
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset id="FeldA">
+                        <legend class="legend">Straße*</legend>
+                        <input id="inputA" type="text">
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset id="FeldB">
+                        <legend class="legend">Nr.*</legend>
+                        <input id="inputB" type="text">
+                    </fieldset>
+                    <fieldset id="FeldB">
+                        <legend class="legend">PLZ*</legend>
+                        <input id="inputB" type="text">
+                    </fieldset>
+    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset id="FeldA">
+                        <legend class="legend">Ort*</legend>
+                        <input id="inputA" type="text">
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset id="FeldA">
+                        <legend class="legend">Tel.</legend>
+                        <input id="inputA" type="text">
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="agb" type="checkbox" checked="false"></input>
+                    <label for="agb">Hiermit akzeptiere ich die AGB*</label>
+                </td>
+            </tr>
+    
+        </table>
+        <div class="bestellen">
+            <button id="bestellen" onclick="location.href='./rechnung.html'">Bestellung Aufgeben</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+
+
+ .navside {
+    height: auto;
+    width: 300px; 
+    position: fixed; 
+    z-index: 1; 
+    background-color:rgb(255, 255, 255);
+    top: 270px; 
+    left: 150px;
+    border-right: 2px;
+    border-left: 0;
+    border-top: 0;
+    border-bottom:0;
+    border-color:rgb(119,119,119);
+    border-style: solid;
+  }
+  
+
+   input[type="checkbox"] {
+      color: #00affe;
+      font-size: 25;
+      font-family: 'Poppins', sans-serif;
+      scale: 1.5;
+      margin-top: 40px;
+      padding: 20px;
+      border: 2px solid #00affe;
+      display:none;
+  }
+
+
+
+  input[type="checkbox"] + label::before {
+    width: 12px;
+    height: 12px;
+    border-radius: 5px;
+    border: 2px solid #00affe;
+    background-color: #fff;
+    display: block;
+    content: "";
+    float: left;
+    scale: 1.5;
+    
+  }
+
+  input[type="checkbox"]:checked + label::before {
+    box-shadow: inset 0px 0px 0px 3px #fff;
+    background-color: #00affe;
+  }
+
+  input[type="checkbox"], .labelside {
+      color: #00affe;
+      font-size: 23;
+      font-family: 'Poppins', sans-serif;
+      scale: 1.6;
+      padding: 20px;
+    }
+
+  .labelside {
+    margin-left: 15px;
+    padding: 0px 18px;
+  }
+
+  #von_label, #bis_label {
+    font-size: 23;
+    font-family: 'Poppins', sans-serif;
+    color: #00affe;
+  }
+
+  #von_preis, #bis_preis {
+    font-size: 20;
+    height: 40px;
+    width: 70px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #00affe;
+  }
+
+
+  .side_item {
+    padding:16px;
+    float: left;
+  }
+
+  .labelBackground {
+    background-color: #00affe ;
+    border-radius: 20px;
+    color: white;
+    display: inline;
+    padding-left: -10px;
+}
+
+
+
+
+
+
+ 
